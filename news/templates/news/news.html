@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>News</title>
+    </head>
+    <body>
+        {% for item in news %}
+            {% if item.link == link %}
+                <h2>{{ item.title }}</h2>
+                <p>{{ item.created }}</p>
+                <p>{{ item.text }}</p>
+            {% endif %}
+        {% endfor %}
+    <br />
+    <a href="/news/">Main Page</a>
+    </body>
+</html>
