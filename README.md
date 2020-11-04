@@ -18,7 +18,6 @@ The times of sitting down with a coffee and reading a newspaper seem to have pas
 List of features ready and TODOs for future development
 
 To-do list:
-* create page for adding news
 * create page for searching news
 
 ## Status
