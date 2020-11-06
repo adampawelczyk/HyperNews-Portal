@@ -16,9 +16,13 @@ The times of sitting down with a coffee and reading a newspaper seem to have pas
 
 ## Features
 List of features ready and TODOs for future development
+* view news
+* add news
+* search news
 
-To-do list:
-* create page for searching news
+To-do list
+* add css
+
 
 ## Status
 Project is: _in progress_
