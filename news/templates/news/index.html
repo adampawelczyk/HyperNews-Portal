@@ -6,6 +6,10 @@
 </head>
 <body>
     <h2>Hyper news</h2>
+    <form action="/news/" method="get">
+        <input type="text" id="search" name="q">
+        <button type="submit">Search</button>
+    </form>
     {% for item in news %}
     <h4>{{item.date}}</h4>
         <ul>

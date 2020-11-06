@@ -13,8 +13,15 @@ class MainView(View):
         return datetime.strptime(date, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
 
     def get(self, request, *args, **kwargs):
+        search = request.GET.get('q')
+        searched_news = []
         with open(settings.NEWS_JSON_PATH, 'r') as json_file:
             news = json.load(json_file)
+        if search:
+            for i in news:
+                if search in i['title']:
+                    searched_news.append(i)
+            news = searched_news
         news.sort(key=lambda x: datetime.strptime(x['created'], "%Y-%m-%d %H:%M:%S"), reverse=True)
         sorted_news = [{'date': date, 'values': list(news)} for date, news in itertools.groupby(news, lambda x: self.simple_date_fun(x['created']))]
         context = {"news": sorted_news}
