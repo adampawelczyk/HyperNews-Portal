@@ -1,23 +1,35 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Hyper news</title>
-</head>
-<body>
-    <h2>Hyper news</h2>
-    <form action="/news/" method="get">
-        <input type="text" id="search" name="q">
-        <button type="submit">Search</button>
-    </form>
-    {% for item in news %}
-    <h4>{{item.date}}</h4>
-        <ul>
-            {% for news in item.values %}
-                <li><a href="/news/{{ news.link }}/">{{ news.title }}</a></li>
-            {% endfor %}
-        </ul>
-    {% endfor %}
-    <a href="/news/create/">Create News</a>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Hyper news</title>
+    </head>
+    <body>
+        <header>
+            <h2>Hyper News</h2>
+        </header>
+        <nav>
+            <form action="/news/" method="get">
+                <input type="text" id="search" name="q" placeholder="Search..">
+            </form>
+        </nav>
+        <main>
+            <br />
+            {% for item in news %}
+            <article>
+                <h4>{{item.date}}</h4>
+                <ul>
+                    {% for news in item.values %}
+                        <li><a class="news_titles" href="/news/{{ news.link }}/">{{ news.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </article>
+        {% endfor %}
+        </main>
+        <br /><br />
+        <a class="link" href="/news/create/">Create News</a>
+    </body>
 </html>

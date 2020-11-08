@@ -1,3 +1,6 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,12 +9,19 @@
     <body>
         {% for item in news %}
             {% if item.link == link %}
-                <h2>{{ item.title }}</h2>
-                <p>{{ item.created }}</p>
-                <p>{{ item.text }}</p>
+                <header>
+                    <h2>{{ item.title }}</h2>
+                </header>
+                <main>
+                    <article>
+                        <p>Created: {{ item.created }}</p>
+                        <br />
+                        <p id="news_text">{{ item.text }}</p>
+                    </article>
+                    <br />
+                    <a class="link" href="/news/">Main Page</a>
+                </main>
             {% endif %}
         {% endfor %}
-    <br />
-    <a href="/news/">Main Page</a>
     </body>
 </html>
